@@ -2,16 +2,16 @@
 
 // css
 import "./assets/css/App.css";
-
 // component
+
+import KeyboardApp from "./components/KeyboardApp";
+
 
 // main app
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<h1>hello</h1>
-			</header>
+			<KeyboardApp />
 		</div>
 	);
 }
