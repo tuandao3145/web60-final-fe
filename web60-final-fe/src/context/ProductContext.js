@@ -1,5 +1,3 @@
 import React from "react";
 
-export const ProductContext = () => {
-	return <div>ProductContext</div>;
-};
+export const ProductContext = React.createContext(null)
