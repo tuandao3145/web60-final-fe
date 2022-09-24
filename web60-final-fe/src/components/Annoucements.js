@@ -7,13 +7,13 @@ export const Annoucements = () => {
 	const { Meta } = Card
 	
 	return (
-			<div style={{ marginLeft: "2%" }}>
+			<div style={{ textAlign: "left", }}>
 				<Row >
 					<Col span={4}> <h2>Annoucements</h2> </Col>
 					<Col span={20}></Col>
 				</Row>
 
-				<Row  style={{ marginLeft: "2%" }}>
+				<Row >
 					<Col span={8}>
 						<Link to="/Annouce_1">
 							<Card
