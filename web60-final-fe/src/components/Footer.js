@@ -7,21 +7,21 @@ export const Footer = () => {
 	return (
 		<Card style={{ margin: "2%", background: "#ececec" }}>
 			<Row>
-				<Col span={12}>
+				<Col span={12} >
 					<Row>
 						<h3> Quick Links</h3>
 					</Row>
 					<Row>
-						<NavLink to='/Privacy' > Privacy Policy</NavLink>
+						<NavLink to='/Privacy' style={{color: "rgba(0, 0, 0, 0.85)"	}} > Privacy Policy</NavLink>
 					</Row>
 					<Row>
-						<NavLink to='/Refund'> Refund Policy</NavLink>
+						<NavLink to='/Refund' style={{color: "rgba(0, 0, 0, 0.85)"	}}> Refund Policy</NavLink>
 					</Row>
 					<Row>
-						<NavLink to='/Shipping'> Shipping Policy</NavLink>
+						<NavLink to='/Shipping' style={{color: "rgba(0, 0, 0, 0.85)"	}}> Shipping Policy</NavLink>
 					</Row>
 					<Row>
-						<NavLink to='/Term'> Term Of Service</NavLink>
+						<NavLink to='/Term' style={{color: "rgba(0, 0, 0, 0.85)"	}}> Term Of Service</NavLink>
 					</Row>
 				</Col>
 

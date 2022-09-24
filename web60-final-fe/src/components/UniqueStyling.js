@@ -6,13 +6,13 @@ export default function UniqueStyling() {
     const { Meta } = Card
 
     return (
-        <div style={{ marginLeft: "2%" }}>
+        <div style = {{ textAlign: "left", }}>
             <Row >
                 <Col span={6}> <h2>Unique Styling Wristrest</h2> </Col>
                 <Col span={18}></Col>
             </Row>
 
-            <Row style={{ marginLeft: "2%" }}>
+            <Row>
                 <Col span={8}>
                     <Card
                         style={{ width: '80%' }}

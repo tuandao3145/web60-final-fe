@@ -6,24 +6,16 @@ import { ProductContext } from "../context/ProductContext";
 
 export const NavBar = () => {
 
+	const category = useContext(ProductContext)
+
 	const menu = (
-		<Menu
+		<Menu style={{ background: "#ececec" }}
 			items={[
 				{
-					label: <NavLink to='/KeebTypingProducts'>KeebTyping products</NavLink>,
-					key: '0',
-				},
-				{
-					label: <NavLink to='/AngryMiaoProducts'>Viendi Products</NavLink>,
-					key: '1',
-				},
-				// {
-				// 	type: 'divider',
-				// },
-				{
-					label: <NavLink to='/ViendiProducts'>Nuxroskb Products</NavLink>,
-					key: '3',
-				},
+					label: category.allCategory?.map(item => <li key={item._id} style={{marginTop:"4%"}}>
+						<NavLink to={'/category/' + item._id} style={{color: "rgba(0, 0, 0, 0.85)"	}}>{item.name}</NavLink>
+					</li>)
+				}
 			]}
 		/>
 	);
