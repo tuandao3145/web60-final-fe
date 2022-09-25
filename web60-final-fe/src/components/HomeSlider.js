@@ -6,7 +6,7 @@ export const HomeSlider = () => {
 
 	return (
 		<>
-			<Carousel autoplay  draggable={true} arrows={true} >
+			<Carousel autoplay draggable={true} arrows={true} >
 				<div>
 					<h3>
 						<img

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Cart } from "./Cart";
 import { HomePage } from "./HomePage";
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "./Profile/LoginForm";
 import { NavBar } from "./NavBar";
 import { Product } from "./Product";
 import axios from 'axios';
@@ -17,13 +17,17 @@ import Shipping from "./Other Links/Shipping";
 import Term from "./Other Links/Term";
 import HomeCategory from "./HomeCategory";
 import { Footer } from "./Footer";
+import { RegisterForm } from "./Profile/RegisterForm";
+import { ForgotPassword } from "./Profile/ForgotPassword";
+import { autoLogin } from "../model/user";
 
 
 
 export default function KeyboardApp() {
 
 
-    const [data, setData] = useState('')
+    const [data, setData] = useState('');
+    const [currentUser, setCurrentUser] = useState('');
 
     useEffect(() => {
     	axios.get('https://keyboard-shop.herokuapp.com/api/products').then((respone) => {
@@ -31,17 +35,21 @@ export default function KeyboardApp() {
     	});
     },[]);
 
+    useEffect(() => {
+        const theUser = autoLogin();
+        setCurrentUser(theUser);
+    }, []);
+
     return (
-        <ProductContext.Provider value={data}>
+        <ProductContext.Provider value={{data, currentUser, setCurrentUser}}>
             <BrowserRouter>
                 <NavBar />
 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/loginform" element={<LoginForm />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/product" element={<Product />} />
-                    
+
                     {/* Annoucements Route */}
                     <Route path="/Annouce_1" element={<Annouce_1 />} />
                     <Route path="/Annouce_2" element={<Annouce_2 />} />
@@ -55,6 +63,11 @@ export default function KeyboardApp() {
                     <Route path="/Refund" element={<Refund />} />
                     <Route path="/Shipping" element={<Shipping />} />
                     <Route path="/Term" element={<Term />} />
+
+                    {/* User Route */}
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/register" element={<RegisterForm />} />
+                    <Route path="/forgotpassword" element={<ForgotPassword />} />
                 </Routes>
 
                 <Footer />

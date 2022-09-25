@@ -6,7 +6,7 @@ export default function HomeCategory({ title }) {
 
     const data = useContext(ProductContext);
     const detail = data.allProduct;
-    console.log(detail);
+
 
 
     return (

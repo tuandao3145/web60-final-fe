@@ -73,7 +73,7 @@ export const NavBar = () => {
 							<Row>
 								<Space size="middle">
 									<h3><SearchOutlined /> </h3>
-									<NavLink to="/loginform">
+									<NavLink to="/login">
 										<h3><UserOutlined /> </h3>
 									</NavLink>
 									<NavLink to="/cart">
