@@ -6,14 +6,14 @@ import { ProductContext } from "../context/ProductContext";
 
 export const NavBar = () => {
 
-	const category = useContext(ProductContext)
+	const category = useContext(ProductContext);
 
 	const menu = (
 		<Menu style={{ background: "#ececec" }}
 			items={[
 				{
-					label: category.allCategory?.map(item => <li key={item._id} style={{marginTop:"4%"}}>
-						<NavLink to={'/category/' + item._id} style={{color: "rgba(0, 0, 0, 0.85)"	}}>{item.name}</NavLink>
+					label: category.data?.allCategory?.map(item => <li key={item._id} style={{ marginTop: "4%" }}>
+						<NavLink to={'/category/' + item._id} style={{ color: "rgba(0, 0, 0, 0.85)" }}>{item.name}</NavLink>
 					</li>)
 				}
 			]}
@@ -73,9 +73,14 @@ export const NavBar = () => {
 							<Row>
 								<Space size="middle">
 									<h3><SearchOutlined /> </h3>
-									<NavLink to="/login">
-										<h3><UserOutlined /> </h3>
-									</NavLink>
+
+									{
+										category.currentUser
+											? <NavLink to='/account'> <h3> <UserOutlined /> </h3> </NavLink>
+											: <NavLink to="/account/login"> <h3> <UserOutlined /> </h3> </NavLink>
+									}
+
+
 									<NavLink to="/cart">
 										<h3><ShoppingOutlined /> </h3>
 									</NavLink>

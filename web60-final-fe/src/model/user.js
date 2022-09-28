@@ -12,7 +12,6 @@ export function generateInitialUsers () {
 export function getUsers() {
     // vào localStorage lấy dữ liệu với key = users
     let json = localStorage.getItem('users');
-
     return !json ? [] : JSON.parse(json);
 }
  
@@ -34,15 +33,16 @@ export async function login (email, password) {
 
 
     const users = getUsers();
+    
+    // const foundUser = users.find(user => user.email == email)
 
-    const foundUser = users.find((user) => user.email == email && user.password == password);
 
     // nếu tìm thấy ng dùng => lưu trạng thái đăng nhập vào localStorage
-    if(foundUser) {
-        localStorage.setItem('current-user', JSON.stringify(foundUser));
+    if(users) {
+        localStorage.setItem('current-user', JSON.stringify(users));
     }
 
-    return foundUser;
+    return users;
 };
 
 export function autoLogin() {
@@ -66,4 +66,9 @@ export async function register(email, password) {
     result = await result.json();
     localStorage.setItem("users", JSON.stringify(result))
 };
+
+export function logout() {
+    //clear localStorage
+    localStorage.clear();
+}
 
