@@ -20,6 +20,7 @@ import { Footer } from "./Footer";
 import { RegisterForm } from "./Profile/RegisterForm";
 import { ForgotPassword } from "./Profile/ForgotPassword";
 import { autoLogin } from "../model/user";
+import Profile from "./Profile/Profile";
 
 
 
@@ -39,6 +40,7 @@ export default function KeyboardApp() {
         const theUser = autoLogin();
         setCurrentUser(theUser);
     }, []);
+   
 
     return (
         <ProductContext.Provider value={{data, currentUser, setCurrentUser}}>
@@ -65,7 +67,9 @@ export default function KeyboardApp() {
                     <Route path="/Term" element={<Term />} />
 
                     {/* User Route */}
-                    <Route path="/login" element={<LoginForm />} />
+                    
+                    <Route path="/account/login" element={<LoginForm />} />
+                    <Route path="/account" element={<Profile />} />
                     <Route path="/register" element={<RegisterForm />} />
                     <Route path="/forgotpassword" element={<ForgotPassword />} />
                 </Routes>

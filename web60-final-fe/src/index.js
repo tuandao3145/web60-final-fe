@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 // css
 import "./assets/css/index.css";
 import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
 import App from "./App";

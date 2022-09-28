@@ -11,10 +11,8 @@ import UniqueStyling from "./UniqueStyling";
 export const HomePage = () => {
 
 	const data = useContext(ProductContext);
-	const title_1 = data.allCategory?.[3];
-	const title_2 = data.allCategory?.[4];
-
-
+	const title_1 = data.data?.allCategory?.[3];
+	const title_2 = data.data?.allCategory?.[4];
 
 	return (
 		<div >
