@@ -1,4 +1,4 @@
-import { Col, Image, Row } from "antd";
+import { Card, Col, Image, Row } from "antd";
 import React, { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
@@ -12,19 +12,21 @@ export default function HomeCategory({ title }) {
     return (
         <div style={{ textAlign: "left", }}>
             <Row>
-                <Col span={6}> <h2>{title?.name}</h2> </Col>
+                <Col span={6}> <h3>{title?.name}</h3> </Col>
                 <Col span={18}></Col>
             </Row>
 
-            <Row style={{ gap: "2%"}}>
+            <Row style={{ gap: "2%" }}>
                 {detail?.map(item => {
                     if (item.category._id == title?._id) {
                         return (
+                            <Card>
                                 <Col>
-                                    <Image src={item.imageMain} style={{ height: "200px"}} />
+                                    <Image src={item.imageMain} style={{ height: "150px" }} />
                                     <h4>{item.name}</h4>
-                                    <h3> From {item.price}$</h3>
+                                    <h5> From {item.price}$</h5>
                                 </Col>
+                            </Card>
                         )
                     }
                 })}
