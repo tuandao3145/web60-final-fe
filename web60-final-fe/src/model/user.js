@@ -9,17 +9,17 @@ export function generateInitialUsers () {
     }
 }
 
-export function getUsers() {
-    // vào localStorage lấy dữ liệu với key = users
-    let json = localStorage.getItem('users');
-    return !json ? [] : JSON.parse(json);
-}
+// export function getUsers() {
+//     // vào localStorage lấy dữ liệu với key = users
+//     let json =  localStorage.getItem('users');
+//     return !json ? [] : JSON.parse(json);
+// }
  
 export async function login (email, password) {
 
     // login lên API
     let item = {email, password}
-    let result = await fetch('https://keyboard-shop.herokuapp.com/api/users/login', {
+    let data = await fetch('https://keyboard-shop.herokuapp.com/api/users/login', {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -27,22 +27,10 @@ export async function login (email, password) {
             "Accept": 'application/json'
         }
     })
-    result = await result.json();
-    localStorage.setItem("users", JSON.stringify(result));
+    let user = await data.json();
+    localStorage.setItem("current-user", JSON.stringify(user));
 
-
-
-    const users = getUsers();
-    
-    // const foundUser = users.find(user => user.email == email)
-
-
-    // nếu tìm thấy ng dùng => lưu trạng thái đăng nhập vào localStorage
-    if(users) {
-        localStorage.setItem('current-user', JSON.stringify(users));
-    }
-
-    return users;
+    return user;
 };
 
 export function autoLogin() {

@@ -15,12 +15,12 @@ export const LoginForm = () => {
 	const auth = useContext(ProductContext);
 	
 
-	const handleLoginForm = (event) => {
+	const handleLoginForm = async (event) => {
 		event.preventDefault();
 
 		if (email && password) {
 			// tiến hành đăng nhập
-			const user = login(email, password);
+			const user = await login(email, password);
 			if (!user) {
 				alert('Email or password is incorrect')
 			} else { // nếu có user thì cập nhật trạng thái đăng nhập
