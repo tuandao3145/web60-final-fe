@@ -9,7 +9,7 @@ export const Annoucements = () => {
 	return (
 			<div style={{ textAlign: "left", }}>
 				<Row >
-					<Col span={4}> <h2>Annoucements</h2> </Col>
+					<Col span={4}> <h3>Annoucements</h3> </Col>
 					<Col span={20}></Col>
 				</Row>
 

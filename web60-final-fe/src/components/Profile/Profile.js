@@ -9,7 +9,6 @@ export default function Profile() {
 
     const user = useContext(ProductContext);
     const navigate = useNavigate();
-    console.log(user);
 
     const handleLogout = () => {
         logout();
@@ -20,11 +19,32 @@ export default function Profile() {
     return (
         <Card>
             <Row>
-                <h2> Account: {user.currentUser.email} </h2>
+                <h3> Account: {user.currentUser.email} </h3>
             </Row>
+            
             <Row>
-                <UserOutlined style={{marginTop: '1%'}} />
+                <UserOutlined style={{ marginTop: '0.75%' }} />
                 <Button type="text" onClick={handleLogout}> Logout</Button>
+            </Row>
+
+            <Row style={{marginTop: "2%"}}>
+                <h5> Order history</h5>
+            </Row>
+
+            <Row>
+
+            {       //render sp
+                    user.currentUser.order && user.currentUser.order.length != 0
+                        ? <>{user.currentUser.order.map(item => {
+                            return(
+                                <Card>
+
+                                </Card>
+                            )
+                        })}</>
+                        // nếu k có order thì render chưa có gì
+                        : <><p>you haven't placed any orders yet</p></>
+                }
             </Row>
 
         </Card>

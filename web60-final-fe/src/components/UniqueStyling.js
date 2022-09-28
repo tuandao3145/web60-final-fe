@@ -8,7 +8,7 @@ export default function UniqueStyling() {
     return (
         <div style = {{ textAlign: "left", }}>
             <Row >
-                <Col span={6}> <h2>Unique Styling Wristrest</h2> </Col>
+                <Col span={6}> <h3>Unique Styling Wristrest</h3> </Col>
                 <Col span={18}></Col>
             </Row>
 

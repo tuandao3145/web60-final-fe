@@ -1,4 +1,4 @@
-export function generateInitialUsers () {
+export function generateInitialUsers() {
 
     const initialUser = [];
 
@@ -14,11 +14,11 @@ export function generateInitialUsers () {
 //     let json =  localStorage.getItem('users');
 //     return !json ? [] : JSON.parse(json);
 // }
- 
-export async function login (email, password) {
+
+export async function login(email, password) {
 
     // login lên API
-    let item = {email, password}
+    let item = { "email":email, "password":password }
     let data = await fetch('https://keyboard-shop.herokuapp.com/api/users/login', {
         method: "POST",
         body: JSON.stringify(item),
@@ -27,10 +27,13 @@ export async function login (email, password) {
             "Accept": 'application/json'
         }
     })
-    let user = await data.json();
-    localStorage.setItem("current-user", JSON.stringify(user));
+    if (data.status === 200) {
 
-    return user;
+        let user = await data.json();
+        localStorage.setItem("current-user", JSON.stringify(user));
+
+        return user;
+    }
 };
 
 export function autoLogin() {
@@ -42,7 +45,7 @@ export function autoLogin() {
 export async function register(email, password) {
 
     //register lên API
-    let item = {email, password}
+    let item = { "email":email, "password":password }
     let result = await fetch('https://keyboard-shop.herokuapp.com/api/users/register', {
         method: "POST",
         body: JSON.stringify(item),
@@ -58,5 +61,19 @@ export async function register(email, password) {
 export function logout() {
     //clear localStorage
     localStorage.clear();
+};
+
+export async function forgotPassword(email) {
+    // gửi yêu cầu reset pass lên API
+    let item = { "email":email}
+    let result = await fetch('https://keyboard-shop.herokuapp.com/api/users/forgotpassword', {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+            "Content-Type": 'application/json',
+            "Accept": 'application/json'
+        }
+    })
+    result = await result.json();
 }
 

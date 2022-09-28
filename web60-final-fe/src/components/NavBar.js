@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Breadcrumb, Card, Col, Dropdown, Menu, PageHeader, Row, Space } from 'antd';
+import { Breadcrumb, Card, Col, Dropdown, Menu, Row, Space } from 'antd';
 import { DownOutlined, SearchOutlined, UserOutlined, ShoppingOutlined } from '@ant-design/icons';
 import { NavLink } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
@@ -26,7 +26,7 @@ export const NavBar = () => {
 
 	return (
 		<div>
-			<PageHeader>
+			<>
 				<Card style={{ background: "#ececec" }}>
 					<Row>
 						<Col span={2}>
@@ -89,7 +89,7 @@ export const NavBar = () => {
 						</Col>
 					</Row>
 				</Card>
-			</PageHeader>
+			</>
 		</div>
 	)
 };
