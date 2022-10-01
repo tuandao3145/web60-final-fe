@@ -4,7 +4,7 @@ import { Cart } from "./Cart";
 import { HomePage } from "./HomePage";
 import { LoginForm } from "./Profile/LoginForm";
 import { NavBar } from "./NavBar";
-import { Product } from "./Product";
+import { Product } from "./Product/Product";
 import axios from 'axios';
 // import data from '../data/data'
 import { ProductContext } from "../context/ProductContext";
