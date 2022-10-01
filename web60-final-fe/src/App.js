@@ -2,6 +2,7 @@
 
 // css
 import "./assets/css/App.css";
+import "./assets/css/global.css";
 // component
 
 import KeyboardApp from "./components/KeyboardApp";

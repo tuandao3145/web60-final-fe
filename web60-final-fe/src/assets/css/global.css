@@ -1,0 +1,121 @@
+/* ZOOM IN PRODUCT WHEN HOVER */
+/* TÙNG */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+.img-hover-zoom:hover .product-name {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 810px) {
+  .Product-page-title {
+    text-align: start;
+    margin: 20px 20px 20px 40px;
+   
+  }
+  .title{
+    
+    font-family : Assistant, sans-serif;
+    font-size: 1cm;
+    font-weight: bold;
+    letter-spacing: 0.06rem;
+  }
+  .filter-menu {
+    width: 100%;
+    margin: 0px 0px 100px 20px;
+    text-align: start;
+    display: flex;
+  }
+
+  .dropdown-stock-price {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .dropdown {
+    width: 100%;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box-input {
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+
+  .price-input {
+    display: flex;
+    gap: 25px;
+    margin: 10px;
+  }
+
+  .sort {
+    margin-left: 260px;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .filter-menu {
+    width: 100%;
+    margin: 0px 0px 100px 20px;
+    text-align: start;
+    display: flex;
+  }
+  .price-input {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 10px;
+  }
+  .dropdown {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .box-input {
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+  .dropdown-stock-price {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .filter-menu {
+    width: 100%;
+    margin: 0px 0px 100px 20px;
+    text-align: start;
+  }
+
+  .dropdown {
+    flex-wrap: wrap;
+  }
+  .sort {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (min-width: 472) {
+  .dropdown-stock-price {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .sort {
+    margin-top: 100px;
+  }
+}
