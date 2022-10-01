@@ -12,7 +12,7 @@ export const LoginForm = () => {
 
 	const navigate = useNavigate();
 
-	const auth = useContext(ProductContext);
+	const { setCurrentUser } = useContext(ProductContext);
 	
 
 	const handleLoginForm = async (event) => {
@@ -24,7 +24,7 @@ export const LoginForm = () => {
 			if (!user) {
 				alert('Email or password is incorrect')
 			} else { // nếu có user thì cập nhật trạng thái đăng nhập
-				auth.setCurrentUser(user); 
+				setCurrentUser(user); 
 				navigate('/');
 				alert('success')
 			}

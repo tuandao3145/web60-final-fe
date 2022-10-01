@@ -7,45 +7,56 @@ import { ProductContext } from "../../context/ProductContext";
 
 export default function Profile() {
 
-    const user = useContext(ProductContext);
+    const {currentUser, setCurrentUser} = useContext(ProductContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logout();
-        user.setCurrentUser('');
+        setCurrentUser('');
         navigate('/');
     }
+    const order = currentUser.order
+    console.log(order);
+    
+    // const result = order?.map(item => {
+    //     return item.items
+    // })
+    // console.log(result);
 
+    
     return (
         <Card>
             <Row>
-                <h3> Account: {user.currentUser.email} </h3>
+                <h3> Account: {currentUser.email} </h3>
             </Row>
-            
+
             <Row>
                 <UserOutlined style={{ marginTop: '0.75%' }} />
                 <Button type="text" onClick={handleLogout}> Logout</Button>
             </Row>
 
-            <Row style={{marginTop: "2%"}}>
-                <h5> Order history</h5>
+            <Row style={{ marginTop: "2%" }}>
+                <h5> Order history: {order?.length}</h5>
             </Row>
 
-            <Row>
+            <div>
 
-            {       //render sp
-                    user.currentUser.order && user.currentUser.order.length != 0
-                        ? <>{user.currentUser.order.map(item => {
-                            return(
-                                <Card>
-
-                                </Card>
+                {       //render sp
+                   order && order.length != 0
+                        ? <>{order.map(item => {
+                            return (
+                                <Row style={{ margin: "2%", textAlign:"left" }}>
+                                    <Card >
+                                        <p> Shipping: {`${item.shippingAddress.address}, ${item.shippingAddress.city}, ${item.shippingAddress.district} `}</p>
+                                        <p> Price: {item.totalPrice}</p>
+                                    </Card>
+                                </Row>
                             )
                         })}</>
                         // nếu k có order thì render chưa có gì
                         : <><p>you haven't placed any orders yet</p></>
                 }
-            </Row>
+            </div>
 
         </Card>
     )
