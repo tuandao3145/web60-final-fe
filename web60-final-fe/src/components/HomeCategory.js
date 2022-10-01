@@ -4,8 +4,8 @@ import { ProductContext } from "../context/ProductContext";
 
 export default function HomeCategory({ title }) {
 
-    const data = useContext(ProductContext);
-    const detail = data.data?.allProduct;
+    const {data} = useContext(ProductContext);
+    const detail = data?.allProduct;
 
 
 
