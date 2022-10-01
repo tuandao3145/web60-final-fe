@@ -20,6 +20,10 @@
   .Product-page-title {
     text-align: start;
     margin: 20px 20px 20px 40px;
+   
+  }
+  .title{
+    
     font-family : Assistant, sans-serif;
     font-size: 1cm;
     font-weight: bold;

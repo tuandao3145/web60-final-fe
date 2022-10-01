@@ -1,13 +1,15 @@
 // LIST PRODUCTS
 // TÙNG
 import React, { useContext, useState } from "react";
-import { List, Button, Dropdown, Menu, Space, Checkbox } from "antd";
+import { List, Button, Dropdown, Menu, Space, Checkbox, Input } from "antd";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { DownOutlined } from "@ant-design/icons";
 import ProductItems from "./ProductItems";
 import { ProductContext } from "../../context/ProductContext";
 import { Footer } from "../Footer";
+import ProductCart from "./ProductCart";
+
 
 function ProductList() {
   const {
@@ -24,6 +26,7 @@ function ProductList() {
   } = useContext(ProductContext);
   const [inStockChecked, setInStockChecked] = useState(false);
   const [outStockChecked, setOutStockChecked] = useState(false);
+  const [searchResults, setSearchResults] = useState("");
 
   const handlePriceFrom = (e) => {
     setPriceFrom(e.target.value);
@@ -34,7 +37,7 @@ function ProductList() {
 
   const inStockChange = (e) => {
     const name = e.target.name;
-   
+
     if (name === "inStock") {
       setInStockChecked(true);
       setOutStockChecked(false);
@@ -61,9 +64,20 @@ function ProductList() {
 
   let arr = [];
   arr = sort.split(" ");
-  console.log(arr);
   setFieldSort(arr[0]);
   setTypeSort(arr[1]);
+
+  const { Search } = Input;
+  const handleSearch = (e) => {
+    setSearchResults(e.target.value);
+  };
+
+  const productResults = searchResults
+    ? products.filter(
+        (item) =>
+          item.name.toLowerCase().indexOf(searchResults.toLowerCase()) > -1
+      )
+    : products;
 
   const menu = (
     <Menu>
@@ -126,7 +140,14 @@ function ProductList() {
 
   return (
     <div>
-      <h1 className="Product-page-title">Product</h1>
+      <div className="Product-page-title">
+        <h3 className="title">Product</h3>
+        <Search
+          placeholder="Product search"
+          onChange={handleSearch}
+          style={{ width: 200 }}
+        />
+      </div>
       <div className="filter-menu">
         <div className="dropdown">
           <div className="dropdown-stock-price">
@@ -162,7 +183,12 @@ function ProductList() {
             <select
               placeholder="Sort By"
               value={sort}
-              style={{ width: 170, marginLeft: 40, outline: 'none' }}
+              style={{
+                width: 170,
+                marginLeft: 40,
+                marginRight: 30,
+                outline: "none",
+              }}
               onChange={(e) => handleFieldSort(e)}
             >
               <option value="name asc">Alphabetically, A-Z</option>
@@ -189,14 +215,15 @@ function ProductList() {
           },
           pageSize: 8,
         }}
-        dataSource={products}
+        dataSource={productResults}
         renderItem={(product) => (
           <List.Item>
             <ProductItems product={product} />
           </List.Item>
         )}
       ></List>
-      <Footer/>
+      <ProductCart />
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Cart } from "./Cart";
+import  Cart  from "./Cart";
 import { HomePage } from "./HomePage";
 import { LoginForm } from "./LoginForm";
 import { NavBar } from "./NavBar";
@@ -19,6 +19,7 @@ import Refund from "./Other Links/Refund";
 import Shipping from "./Other Links/Shipping";
 import Term from "./Other Links/Term";
 import { Product } from "./Product/Product";
+import ProductCart from "./Product/ProductCart";
 
 
 
@@ -33,7 +34,7 @@ export default function KeyboardApp() {
     	});
     }, []);
 
-    console.log(data);
+
 
 
     return (
@@ -44,9 +45,9 @@ export default function KeyboardApp() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/loginform" element={<LoginForm />} />
-                    <Route path="/cart" element={<Cart />} />
+                    {/* <Route path="/Cart" element={<Cart />} /> */}
                     <Route path="/product" element={<Product/>} />
-
+                   
                   
                     
                     {/* Annoucements Route */}

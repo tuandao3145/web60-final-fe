@@ -1,13 +1,14 @@
 // CARD PRODUCT 
 // TÙNG
-import { Card,  } from "antd";
-import React from "react";
-
+import { Card  } from "antd";
+import React, {useContext} from "react";
+import { ProductContext } from "../../context/ProductContext";
+import Button from 'react-bootstrap/Button';
 const { Meta } = Card;
 
 function ProductItems({ product }) {
 
-  
+  const {addToCart} = useContext(ProductContext)
     
   return (
    
@@ -27,7 +28,8 @@ function ProductItems({ product }) {
       >
        <strong> <Meta className="product-name" title={product.name} /> </strong>
 
-        <h3>From {product.price} $</h3>
+        <h5>From {product.price} $</h5>
+        <Button variant="primary" onClick={()=>addToCart(product)}>Buy</Button>
       </Card>
     
 

@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // css
-import "./assets/css/index.css";
+import './index.css';
 import 'antd/dist/antd.css';
 
 // components
