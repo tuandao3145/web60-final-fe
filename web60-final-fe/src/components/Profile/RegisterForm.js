@@ -11,11 +11,24 @@ export const RegisterForm = () => {
 
     const navigate = useNavigate();
 
+    //validate
+    const validate = (email, password) => {
+        if (email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        ) && password.lenght >=6 ) {
+            alert('success');
+            navigate('/');
+            return
+        } else {
+            alert('please input correct email and password must have at least 6 characters')
+        }
+    };
+
+
     const handleRegister = (event) => {
         event.preventDefault();
-       register(email, password);
-       navigate('/');
-       alert('success')
+        validate(email, password)
+        register(email, password);
     }
 
     return (
