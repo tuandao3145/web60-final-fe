@@ -1,11 +1,20 @@
 import { Button, Card, Form, Input, Row } from 'antd';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { forgotPassword } from '../../model/user';
 
 
 export const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+
+    const handleForgot = (event) => {
+        event.preventDefault();
+        forgotPassword(email);
+        alert('Please check your email');
+        navigate('/');
+    }
 
 
     return (
@@ -46,7 +55,7 @@ export const ForgotPassword = () => {
                         }}
                     >
                         <Row>
-                            <Button type="primary" htmlType="submit">
+                            <Button onClick={handleForgot} type="primary" htmlType="submit">
                                 Submit
                             </Button>
                         </Row>

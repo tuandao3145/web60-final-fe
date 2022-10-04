@@ -1,13 +1,3 @@
-export function generateInitialUsers() {
-
-    const initialUser = [];
-
-
-    // nếu chưa có dữ liệu trg local thì khởi tạo dữ liệu
-    if (!localStorage.getItem('users')) {
-        localStorage.setItem('users', JSON.stringify(initialUser));
-    }
-}
 
 // export function getUsers() {
 //     // vào localStorage lấy dữ liệu với key = users

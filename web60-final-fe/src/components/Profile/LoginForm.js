@@ -14,10 +14,9 @@ export const LoginForm = () => {
 
 	const { setCurrentUser } = useContext(ProductContext);
 	
-
 	const handleLoginForm = async (event) => {
 		event.preventDefault();
-
+	
 		if (email && password) {
 			// tiến hành đăng nhập
 			const user = await login(email, password);
